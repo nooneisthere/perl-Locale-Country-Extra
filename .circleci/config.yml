@@ -9,9 +9,8 @@ jobs:
           name: install dzil
           command: |
             perl -e "print 0;"
-            curl -L https://cpanmin.us | perl - App::cpanminus
-            wget -o - https://cpanmin.us | perl - App::cpanminus
-            cpanm --quiet --notest Dist::Zilla Dist::Zilla::App::Command::cover App::cpm Devel::Cover::Report::Codecov
+            sudo curl -L https://cpanmin.us | perl - App::cpanminus
+            sudo cpanm --quiet --notest Dist::Zilla Dist::Zilla::App::Command::cover App::cpm Devel::Cover::Report::Codecov
             cpm install -w 2 --mirror=http://cpan.cpantesters.org/ -g $(dzil authordeps --missing)
             cpm install -w 2 --mirror=http://cpan.cpantesters.org/ -g $(dzil listdeps --author --missing)
       - run:
