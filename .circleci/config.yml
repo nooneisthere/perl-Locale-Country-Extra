@@ -12,4 +12,6 @@ jobs:
       - run:
           name: dzil test 
           command: |
+            pwd
+            cd home/circleci/project
             make test
