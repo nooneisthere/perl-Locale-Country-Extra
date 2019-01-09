@@ -14,7 +14,7 @@ jobs:
             perl -MCPAN -e 'install App::cpm'
             cpm install -w 2 --mirror=http://cpan.cpantesters.org/ -g $(dzil authordeps --missing)
             cpm install -w 2 --mirror=http://cpan.cpantesters.org/ -g $(dzil listdeps --author --missing)
-      - run:m
+      - run:
           name: dzil test 
           command: |
             dzil smoke --release --author && dzil cover -test -report codecov && dzil xtest
