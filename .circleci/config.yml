@@ -13,5 +13,6 @@ jobs:
           name: dzil test 
           command: |
             pwd
-            cd home/circleci/project
+            ls
+            cat Makefile
             make test
