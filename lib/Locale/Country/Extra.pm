@@ -33,6 +33,12 @@ sub code_from_country {
     my ($self, $country) = @_;
 
     my %code_countries = reverse %{ $self->_country_codes };
+
+    unless(exists $code_countries{$country}){
+        $country = lc $country;
+        ($country) = grep { $country eq lc $_ } keys %code_countries;
+    };
+
     return lc $code_countries{$country};
 }
 

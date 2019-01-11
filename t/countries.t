@@ -23,6 +23,8 @@ subtest 'code_from_country' => sub {
     is $countries->code_from_country('Australia'),          'au', 'Australia is AU';
     is $countries->code_from_country('United Kingdom'),     'gb', 'United Kingdom is GB';
     is $countries->code_from_country('Indonesia'),          'id', 'Indonesia is ID';
+    is $countries->code_from_country("Cote D'ivoire"),      'ci', "Cote D'ivoire - case insensitive";
+    is $countries->code_from_country("Cote d'Ivoire"),      'ci', "Cote d'Ivoire - case insensitive";
 };
 
 subtest 'idd_from_code' => sub {
