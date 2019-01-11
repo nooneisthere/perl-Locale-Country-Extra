@@ -1,6 +1,6 @@
 on configure => sub {
     requires 'Locale::Country', '3.42';
-    requires 'Locale::Country::Multilingual','0.26';
+    requires 'Locale::Country::Multilingual';
     requires 'Locale::Codes';
 };
 
