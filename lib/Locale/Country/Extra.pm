@@ -38,13 +38,12 @@ sub code_from_country {
     unless( exists $code_countries{$country} ){
         use List::Util qw(first) ;
         $country = lc $country;
-        $country = (first { $country eq lc $_ } keys %code_countries) // '';
+        $country = first { $country eq lc $_ } keys %code_countries;
+        return '' unless $country;
     };
 
     
-    return lc $code_countries{$country} if exists $code_countries{$country} ;
-    
-
+    return lc $code_countries{$country} ;
 }
 
 sub idd_from_code {
