@@ -34,12 +34,17 @@ sub code_from_country {
 
     my %code_countries = reverse %{ $self->_country_codes };
 
-    unless(exists $code_countries{$country}){
+
+    unless( exists $code_countries{$country} ){
+        use List::Util qw(first) ;
         $country = lc $country;
-        ($country) = grep { $country eq lc $_ } keys %code_countries;
+        $country = (first { $country eq lc $_ } keys %code_countries) // '';
     };
 
-    return lc $code_countries{$country};
+    
+    return lc $code_countries{$country} if exists $code_countries{$country} ;
+    
+
 }
 
 sub idd_from_code {
