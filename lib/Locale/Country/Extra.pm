@@ -2,10 +2,11 @@ package Locale::Country::Extra;
 use strict;
 use warnings;
 
-our $VERSION = '1.0.2';
+our $VERSION = '1.0.2'; # VERSION
 
 use Locale::Country qw();
 use Locale::Country::Multilingual { use_io_layer => 1 };
+use List::Util qw(first) ;
 
 sub new {
     my $class = shift;
@@ -36,7 +37,6 @@ sub code_from_country {
 
 
     unless( exists $code_countries{$country} ){
-        use List::Util qw(first) ;
         $country = lc $country;
         $country = first { $country eq lc $_ } keys %code_countries;
         return '' unless $country;
