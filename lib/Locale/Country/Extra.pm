@@ -35,13 +35,11 @@ sub code_from_country {
 
     my %code_countries = reverse %{ $self->_country_codes };
 
-
     unless( exists $code_countries{$country} ){
         $country = lc $country;
         $country = first { $country eq lc $_ } keys %code_countries;
-        return unless $country;
+        return undef unless $country;
     };
-
     
     return lc $code_countries{$country} ;
 }
