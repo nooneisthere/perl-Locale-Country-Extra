@@ -39,7 +39,7 @@ sub code_from_country {
     unless( exists $code_countries{$country} ){
         $country = lc $country;
         $country = first { $country eq lc $_ } keys %code_countries;
-        return '' unless $country;
+        return unless $country;
     };
 
     
