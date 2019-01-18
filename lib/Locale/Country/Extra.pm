@@ -6,7 +6,6 @@ our $VERSION = '1.0.1';
 
 use Locale::Country qw();
 use Locale::Country::Multilingual { use_io_layer => 1 };
-use List::Util qw(first) ;
 
 sub new {
     my $class = shift;
@@ -37,7 +36,7 @@ sub code_from_country {
 
     unless( exists $code_countries{$country} ){
         $country = lc $country;
-        $country = first { $country eq lc $_ } keys %code_countries;
+        $country = List::Util::first { $country eq lc $_ } keys %code_countries;
         return undef unless $country;
     };
     
