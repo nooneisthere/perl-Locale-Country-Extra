@@ -6,6 +6,7 @@ our $VERSION = '1.0.1';
 
 use Locale::Country qw();
 use Locale::Country::Multilingual { use_io_layer => 1 };
+use List::Util ();
 
 sub new {
     my $class = shift;
