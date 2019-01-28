@@ -5,8 +5,7 @@ use warnings;
 our $VERSION = '1.0.1';
 
 use Locale::Country qw();
-use Locale::Country::Multilingual { use_io_layer => 1 };
-use List::Util ();
+use Locale::Country::Multilingual {use_io_layer => 1};
 
 sub new {
     my $class = shift;
@@ -33,15 +32,14 @@ sub country_from_code {
 sub code_from_country {
     my ($self, $country) = @_;
 
-    my %code_countries = reverse %{ $self->_country_codes };
+    my $lcm  = Locale::Country::Multilingual->new();
+    my $code = $lcm->country2code($country);
 
-    unless( exists $code_countries{$country} ){
-        $country = lc $country;
-        $country = List::Util::first { $country eq lc $_ } keys %code_countries;
-        return undef unless $country;
-    };
-    
-    return lc $code_countries{$country} ;
+    if ($code) {
+        return lc $code;
+    } else {
+        return undef;
+    }
 }
 
 sub idd_from_code {
@@ -65,7 +63,7 @@ sub get_valid_phone {
 }
 
 sub code_from_phone {
-    my ( $self, $number ) = @_;
+    my ($self, $number) = @_;
 
     if (my $first = $self->codes_from_phone($number)) {
         return lc ${$first}[0];
@@ -78,8 +76,8 @@ sub codes_from_phone {
     my ($self, $number) = @_;
 
     if (my $phone = $self->get_valid_phone($number)) {
-        my %codes = %{ $self->_idd_codes };
-        return [ sort grep { $phone =~ /^$codes{$_}/ } keys %codes ]
+        my %codes = %{$self->_idd_codes};
+        return [sort grep { $phone =~ /^$codes{$_}/ } keys %codes];
     }
 
     return '';
@@ -87,12 +85,12 @@ sub codes_from_phone {
 
 sub all_country_names {
     my $self = shift;
-    return values %{ $self->_country_codes };
+    return values %{$self->_country_codes};
 }
 
 sub all_country_codes {
     my $self = shift;
-    return keys %{ $self->_country_codes };
+    return keys %{$self->_country_codes};
 }
 
 sub localized_code2country {
@@ -113,7 +111,7 @@ sub _build_country_codes {
 
     my $country_hash = {};
     foreach my $code (@codes) {
-        $country_hash->{ lc($code) } = $lcm->code2country($code);
+        $country_hash->{lc($code)} = $lcm->code2country($code);
     }
 
     return $country_hash;
