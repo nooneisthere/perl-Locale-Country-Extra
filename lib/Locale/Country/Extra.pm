@@ -35,11 +35,8 @@ sub code_from_country {
     my $lcm  = Locale::Country::Multilingual->new();
     my $code = $lcm->country2code($country);
 
-    if ($code) {
-        return lc $code;
-    } else {
-        return undef;
-    }
+    return $code ? lc $code : undef;
+
 }
 
 sub idd_from_code {
