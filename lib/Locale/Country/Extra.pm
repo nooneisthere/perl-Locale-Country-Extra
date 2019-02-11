@@ -32,8 +32,29 @@ sub country_from_code {
 sub code_from_country {
     my ($self, $country) = @_;
 
-    my $lcm  = Locale::Country::Multilingual->new();
-    my $code = $lcm->country2code($country);
+    my %country_from_mt5 = (
+        "Brunei Darussalam"                 => "bn",
+        "Cocos Islands"                     => "cc",
+        "Congo"                             => "cg",
+        "Heard Island and Mcdonald Islands" => "hm",
+        "Hong Kong S.A.R."                  => "hk",
+        "Korea"                             => "kr",
+        "Macao S.A.R."                      => "mo",
+        "Myanmar"                           => "mm",
+        "Islamic Republic of Pakistan"      => "pk",
+        "Palestinian Authority"             => "ps",
+        "Pitcairn"                          => "pn",
+        "Saint Vincent and The Grenadines"  => "vc",
+        "South Georgia"                     => "gs",
+        "Syrian Arab Republic"              => "sy",
+        "U.A.E."                            => "ae",
+        "Vatican City State"                => "va",
+        "Virgin Islands"                    => "vg"
+    );
+    
+    return $country_from_mt5{$country} if $country_from_mt5{$country};
+
+    my $code = Locale::Country::Multilingual->new()->country2code($country);
 
     return $code ? lc $code : undef;
 
