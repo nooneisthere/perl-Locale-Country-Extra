@@ -7,6 +7,26 @@ our $VERSION = '1.0.1';
 use Locale::Country qw();
 use Locale::Country::Multilingual {use_io_layer => 1};
 
+our %COUNTRY_MAP = (
+    "brunei darussalam"                 => "bn",
+    "cocos islands"                     => "cc",
+    "congo"                             => "cg",
+    "heard island and mcdonald islands" => "hm",
+    "hong kong s.a.r."                  => "hk",
+    "korea"                             => "kr",
+    "macao s.a.r."                      => "mo",
+    "myanmar"                           => "mm",
+    "islamic republic of pakistan"      => "pk",
+    "palestinian authority"             => "ps",
+    "pitcairn"                          => "pn",
+    "saint vincent and the grenadines"  => "vc",
+    "south georgia"                     => "gs",
+    "syrian arab republic"              => "sy",
+    "u.a.e."                            => "ae",
+    "vatican city state"                => "va",
+    "virgin islands"                    => "vg"
+);
+
 sub new {
     my $class = shift;
 
@@ -32,27 +52,8 @@ sub country_from_code {
 sub code_from_country {
     my ($self, $country) = @_;
 
-    my %country_from_mt5 = (
-        "Brunei Darussalam"                 => "bn",
-        "Cocos Islands"                     => "cc",
-        "Congo"                             => "cg",
-        "Heard Island and Mcdonald Islands" => "hm",
-        "Hong Kong S.A.R."                  => "hk",
-        "Korea"                             => "kr",
-        "Macao S.A.R."                      => "mo",
-        "Myanmar"                           => "mm",
-        "Islamic Republic of Pakistan"      => "pk",
-        "Palestinian Authority"             => "ps",
-        "Pitcairn"                          => "pn",
-        "Saint Vincent and The Grenadines"  => "vc",
-        "South Georgia"                     => "gs",
-        "Syrian Arab Republic"              => "sy",
-        "U.A.E."                            => "ae",
-        "Vatican City State"                => "va",
-        "Virgin Islands"                    => "vg"
-    );
-    
-    return $country_from_mt5{$country} if $country_from_mt5{$country};
+    $country = lc $country;
+    return $COUNTRY_MAP{$country} if $COUNTRY_MAP{$country};
 
     my $code = Locale::Country::Multilingual->new()->country2code($country);
 
