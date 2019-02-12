@@ -435,6 +435,28 @@ Version 1.0.0
     RETURNS
     Country code
 
+    EXTRA
+    Extra aliases for coutry name are supported as below
+    %COUNTRY_MAP = (
+        "brunei darussalam"                 => "bn",
+        "cocos islands"                     => "cc",
+        "congo"                             => "cg",
+        "heard island and mcdonald islands" => "hm",
+        "hong kong s.a.r."                  => "hk",
+        "korea"                             => "kr",
+        "macao s.a.r."                      => "mo",
+        "myanmar"                           => "mm",
+        "islamic republic of pakistan"      => "pk",
+        "palestinian authority"             => "ps",
+        "pitcairn"                          => "pn",
+        "saint vincent and the grenadines"  => "vc",
+        "south georgia"                     => "gs",
+        "syrian arab republic"              => "sy",
+        "u.a.e."                            => "ae",
+        "vatican city state"                => "va",
+        "virgin islands"                    => "vg"
+    );
+ 
 =cut
 
 =head2 get_valid_phone
