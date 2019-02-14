@@ -17,7 +17,7 @@ my $idd = $countries->idd_from_code('in'); # returns 91
 my $code = $countries->code_from_phone('+44 8882220202'); # returns 'gb'
 ```
 
-Extra aliases for coutry name are supported as below
+Extra aliases for country name are supported as below
  ```
 our %COUNTRY_MAP = (
     "brunei darussalam"                 => "bn",
