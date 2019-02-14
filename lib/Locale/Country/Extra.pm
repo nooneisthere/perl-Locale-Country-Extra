@@ -436,7 +436,7 @@ Version 1.0.0
     Country code
 
     EXTRA
-    Extra aliases for coutry name are supported as below
+    Extra aliases for country name are supported as below
     %COUNTRY_MAP = (
         "brunei darussalam"                 => "bn",
         "cocos islands"                     => "cc",
