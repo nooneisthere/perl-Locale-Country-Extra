@@ -456,7 +456,7 @@ Version 1.0.0
         "vatican city state"                => "va",
         "virgin islands"                    => "vg"
     );
- 
+
 =cut
 
 =head2 get_valid_phone
