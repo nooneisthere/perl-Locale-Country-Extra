@@ -21,6 +21,7 @@ our %COUNTRY_MAP = (
     "pitcairn"                          => "pn",
     "saint vincent and the grenadines"  => "vc",
     "south georgia"                     => "gs",
+    "south georgia & south sandwich"    => "gs",
     "syrian arab republic"              => "sy",
     "u.a.e."                            => "ae",
     "vatican city state"                => "va",
@@ -451,12 +452,13 @@ Version 1.0.0
         "pitcairn"                          => "pn",
         "saint vincent and the grenadines"  => "vc",
         "south georgia"                     => "gs",
+        "south georgia & south sandwich"    => "gs",
         "syrian arab republic"              => "sy",
         "u.a.e."                            => "ae",
         "vatican city state"                => "va",
         "virgin islands"                    => "vg"
     );
- 
+
 =cut
 
 =head2 get_valid_phone
