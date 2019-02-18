@@ -53,7 +53,9 @@ sub country_from_code {
 sub code_from_country {
     my ($self, $country) = @_;
 
+    $country =~ s/^\s+|\s+$//g
     $country = lc $country;
+
     return $COUNTRY_MAP{$country} if $COUNTRY_MAP{$country};
 
     my $code = Locale::Country::Multilingual->new()->country2code($country);
