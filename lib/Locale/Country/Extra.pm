@@ -11,7 +11,7 @@ our %COUNTRY_MAP = (
     "brunei darussalam"                 => "bn",
     "cocos islands"                     => "cc",
     "congo"                             => "cg",
-    "curacao"=>"cw",
+    "curacao"                           => "cw",
     "heard island and mcdonald islands" => "hm",
     "hong kong s.a.r."                  => "hk",
     "korea"                             => "kr",
@@ -25,11 +25,10 @@ our %COUNTRY_MAP = (
     "south georgia"                     => "gs",
     "south georgia & south sandwich"    => "gs",
     "syrian arab republic"              => "sy",
-    "taiwan"              => "tw",
+    "taiwan"                            => "tw",
     "u.a.e."                            => "ae",
     "vatican city state"                => "va",
     "virgin islands"                    => "vg"
-
 
 );
 
