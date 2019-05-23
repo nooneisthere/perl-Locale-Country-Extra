@@ -29,7 +29,6 @@ our %COUNTRY_MAP = (
     "u.a.e."                            => "ae",
     "vatican city state"                => "va",
     "virgin islands"                    => "vg"
-
 );
 
 sub new {
